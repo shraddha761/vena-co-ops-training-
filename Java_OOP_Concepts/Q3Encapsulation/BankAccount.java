@@ -6,8 +6,8 @@ public class BankAccount {
     private String accountNumber;
 
     public BankAccount(String accountHolder, double initialBalance, String accountNumber) {
-        this.accountHolder = accountHolder;
-        this.accountNumber = accountNumber;
+        setAccountHolder(accountHolder);
+        setAccountNumber(accountNumber);
         setBalance(initialBalance);
     }
 
