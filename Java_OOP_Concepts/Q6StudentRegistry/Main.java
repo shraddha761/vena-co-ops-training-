@@ -14,6 +14,6 @@ public class Main {
         student4.display();
         student5.display();
 
-        Student.getTotalStudents();
+        Student.getTotalStudents(); // 5 answer
     }
 }
