@@ -1,41 +1,58 @@
 package HandsOnCollectionFramework.model;
 
-import java.util.Objects;
-import java.util.Queue;
-import java.util.TreeSet;
+import HandsOnCollectionFramework.util.Validator;
 
 public class Student {
-     private String studentId;
-     private String name;
-     private int year;
-     private String email;
-     private String branch;
+    private final String studentId;
+    private final String name;
+    private final String email;
+    private final String branch;
+    private final int year;
 
     public Student(String studentId, String name, String email, int year, String branch) {
+        if (!Validator.isValidId(studentId)) {
+            throw new IllegalArgumentException("Invalid Student ID");
+        }
+        if (!Validator.isValidName(name)) {
+            throw new IllegalArgumentException("Invalid Student Name");
+        }
+        if (!Validator.isValidEmail(email)) {
+            throw new IllegalArgumentException("Invalid Email Format");
+        }
+        if (!Validator.isValidName(branch)) {
+            throw new IllegalArgumentException("Invalid Branch");
+        }
+
         this.studentId = studentId;
         this.name = name;
-        this.year = year;
         this.email = email;
         this.branch = branch;
-    }
-    public String getBranch() {
-        return branch;
+        this.year = year;
     }
 
     public String getStudentId() {
         return studentId;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getBranch() {
+        return branch;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Student)) return false;
-        Student s = (Student) o;
-        return Objects.equals(studentId, s.studentId);
+        return o instanceof Student && ((Student) o).getStudentId().equals(this.studentId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(studentId);
+        return studentId.hashCode();
     }
 }

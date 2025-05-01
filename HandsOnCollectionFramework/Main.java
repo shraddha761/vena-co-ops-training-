@@ -2,13 +2,18 @@ package HandsOnCollectionFramework;
 
 import HandsOnCollectionFramework.model.Course;
 import HandsOnCollectionFramework.model.Student;
-import HandsOnCollectionFramework.service.RegistrationSystem;
+import HandsOnCollectionFramework.service.CourseService;
+import HandsOnCollectionFramework.service.RegistrationManager;
+import HandsOnCollectionFramework.service.StudentService;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        RegistrationSystem registrationSystem = new RegistrationSystem();
+        CourseService courseService = new CourseService();
+        StudentService studentService = new StudentService();
+        RegistrationManager manager = new RegistrationManager(courseService, studentService);
+
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -33,7 +38,7 @@ public class Main {
                     String courseName = sc.next();
                     String instructor = sc.next();
                     int credits = sc.nextInt();
-                    registrationSystem.addCourse(new Course(courseId, courseName, instructor, credits));
+                    courseService.addCourse(new Course(courseId, courseName, instructor, credits));
                     System.out.println("Course added.");
                     break;
 
@@ -44,7 +49,7 @@ public class Main {
                     String email = sc.next();
                     int year = sc.nextInt();
                     String branch = sc.next();
-                    registrationSystem.addStudent(new Student(studentId, name, email, year, branch));
+                    studentService.addStudent(new Student(studentId, name, email, year, branch));
                     System.out.println("Student added.");
                     break;
 
@@ -52,36 +57,36 @@ public class Main {
                     System.out.println("Enter student ID and course ID to register:");
                     studentId = sc.next();
                     courseId = sc.next();
-                    boolean enrolled = registrationSystem.registerStudentToCourse(studentId, courseId);
+                    boolean enrolled = manager.registerStudentToCourse(studentId, courseId);
                     System.out.println(enrolled ? "Enrolled successfully." : "Registration failed or waitlisted.");
                     break;
 
                 case 4:
-                    System.out.println("Enter student ID and course ID to drop:");
+                    System.out.println("Enter student ID and course ID who wants to drop:");
                     studentId = sc.next();
                     courseId = sc.next();
-                    registrationSystem.dropCourse(studentId, courseId);
+                    manager.dropStudent(studentId, courseId);
                     System.out.println("Dropped!");
                     break;
 
                 case 5:
                     System.out.println("Enter course ID:");
                     courseId = sc.next();
-                    registrationSystem.listStudentByCourse(courseId)
+                    manager.listStudentsByCourse(courseId)
                             .forEach(System.out::println);
                     break;
 
                 case 6:
                     System.out.println("Enter branch:");
                     branch = sc.next();
-                    registrationSystem.listStudentByBranch(branch)
+                    manager.listStudentsByBranch(branch)
                             .forEach(System.out::println);
                     break;
 
                 case 7:
                     System.out.println("Enter student ID:");
                     studentId = sc.next();
-                    registrationSystem.listCourseByStudent(studentId)
+                    manager.listCoursesByStudentBranch(studentId)
                             .forEach(System.out::println);
                     break;
 
@@ -89,7 +94,7 @@ public class Main {
                     System.out.println("Enter credit and instructor name:");
                     int credit = sc.nextInt();
                     instructor = sc.next();
-                    registrationSystem.filterCoursesByCreditsOrInstructor(credit, instructor)
+                    courseService.filterCoursesByCreditsOrInstructorName(credit, instructor)
                             .forEach(System.out::println);
                     break;
 
