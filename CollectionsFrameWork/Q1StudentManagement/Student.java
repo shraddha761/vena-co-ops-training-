@@ -2,11 +2,11 @@ package CollectionsFrameWork.Q1StudentManagement;
 
 public class Student {
     private static int counter = 1;
-    int id;
-    String name;
-    int age;
-    double grade;
-    String branch;
+    private int id;
+    private String name;
+    private int age;
+    private double grade;
+    private String branch;
 
     Student(String name, int age, double grade, String branch) {
         this.id = counter++;
