@@ -7,7 +7,7 @@ import java.util.TreeSet;
 
 public class Leaderboard {
     Comparator<Player> comparator = (p1, p2) ->{
-        int score = Integer.compare(p2.score , p1.score);
+        int score = Integer.compare(p2.getScore() , p1.getScore());
         return score;
     };
     private TreeSet<Player> leaderboard = new TreeSet<>(comparator);
