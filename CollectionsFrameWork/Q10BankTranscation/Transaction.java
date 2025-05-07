@@ -2,12 +2,12 @@ package CollectionsFrameWork.Q10BankTranscation;
 
 import java.time.LocalDateTime;
 
-public class Transcation {
+public class Transaction {
     private String transactionId;
     private double amount;
     private LocalDateTime transactionTime;
 
-    Transcation(String transactionId, double amount, LocalDateTime transactionTime) {
+    public Transaction(String transactionId, double amount, LocalDateTime transactionTime) {
         this.transactionId = transactionId;
         this.amount = amount;
         this.transactionTime = transactionTime;
