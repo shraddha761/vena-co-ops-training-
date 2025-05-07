@@ -21,7 +21,7 @@ public class Main {
         }
 
         for (List<Employee> empList : deptDirectory.values()) {
-            empList.sort((e1, e2) -> Double.compare(e2.salary, e1.salary));
+            empList.sort((e1, e2) -> Double.compare(e2.getSalary(), e1.getSalary()));
         }
 
         System.out.println("How many employees salary wants? " );
@@ -41,7 +41,7 @@ public class Main {
     }
         public static List<Employee> getTopPaidEmployees(List<Employee> employees, int n) {
         return employees.stream()
-                .sorted((e1, e2) -> Double.compare(e2.salary, e1.salary))
+                .sorted((e1, e2) -> Double.compare(e2.getSalary(), e1.getSalary()))
                 .limit(n)
                 .toList();
     }
