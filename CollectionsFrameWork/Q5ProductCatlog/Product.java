@@ -1,11 +1,11 @@
 package CollectionsFrameWork.Q5ProductCatlog;
 
 public class Product {
-    int id;
-    String name;
-    double price;
-    double rating;
-    int stock;
+    private int id;
+    private String name;
+    private double price;
+    private double rating;
+    private int stock;
 
     Product(int id, String name, double price, double rating, int stock) {
         this.id = id;
@@ -13,5 +13,24 @@ public class Product {
         this.price = price;
         this.rating = rating;
         this.stock = stock;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public int getStock() {
+        return stock;
     }
 }
