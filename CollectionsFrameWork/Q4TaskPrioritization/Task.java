@@ -23,6 +23,6 @@ public class Task {
 
     @Override
     public String toString() {
-        return name + " | Priority: " + priority + " | Deadline: " + deadline;
+        return taskName + " | Priority: " + priority + " | Deadline: " + deadline;
     }
 }
