@@ -12,4 +12,8 @@ public class Task {
         this.priority = priority;
         this.deadline = deadline;
     }
+    @Override
+    public String toString() {
+        return name + " | Priority: " + priority + " | Deadline: " + deadline;
+    }
 }
