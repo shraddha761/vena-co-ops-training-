@@ -5,23 +5,44 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        Map<String, List<Employee>> employees = new TreeMap<>(Comparator.reverseOrder());
+        Map<String, List<Employee>> deptDirectory = new TreeMap<>(Comparator.reverseOrder());
         Scanner scanner = new Scanner(System.in);
-        addEmployee(employees, "HR" ,new Employee("Shraddha", 50000));
-        addEmployee(employees, "IT", new Employee("Ruhi", 40000));
-        addEmployee(employees,"CS", new Employee("Ranjana", 60000));
-        addEmployee(employees, "CORE", new Employee("Pratham", 30000));
-        addEmployee(employees, "SALES", new Employee("Rohit", 90000));
-        System.out.println("How many employees salary wants? " );
-        int n = scanner.nextInt();
-        List<Employee> employee = employees.values().stream().flatMap(List::stream).sorted(Comparator.comparingDouble(e -> -e.salary)).limit(n).collect(Collectors.toList());
+        
+        List<Employee> allEmployees = Arrays.asList(
+                new Employee("Shraddha", "HR", 70000),
+                new Employee("Radha", "HR", 85000),
+                new Employee("Kanha", "IT", 95000),
+                new Employee("Krishan", "IT", 92000),
+                new Employee("Pratham", "Finance", 88000),
+        );
 
-        for(Employee e: employee) {
-            System.out.println(e.name);
+         for (Employee emp : allEmployees) {
+            deptDirectory.computeIfAbsent(emp.department, k -> new ArrayList<>()).add(emp);
+        }
+
+        for (List<Employee> empList : deptDirectory.values()) {
+            empList.sort((e1, e2) -> Double.compare(e2.salary, e1.salary));
+        }
+
+        System.out.println("How many employees salary wants? " );
+        int N = scanner.nextInt();
+
+        if (n > employees.size()) {
+          System.out.println("Requested top " + n + " employees, but only " + employees.size() + " are available.");
+        }
+
+       List<Employee> topPaid = getTopPaidEmployees(allEmployees, N);
+        
+        System.out.println("\n=== Top " + N + " Paid Employees Across All Departments ===");
+        
+        for (Employee emp : topPaid) {
+            System.out.println(emp);
         }
     }
-
-    public static void addEmployee(Map<String, List<Employee>> employees, String department, Employee employee){
-        employees.computeIfAbsent(department, k -> new ArrayList<>()).add(employee);
+        public static List<Employee> getTopPaidEmployees(List<Employee> employees, int n) {
+        return employees.stream()
+                .sorted((e1, e2) -> Double.compare(e2.salary, e1.salary))
+                .limit(n)
+                .toList();
     }
 }
