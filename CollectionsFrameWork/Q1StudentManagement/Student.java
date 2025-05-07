@@ -22,4 +22,9 @@ public class Student {
     public String getBranch() {
         return branch;
     }
+    @Override
+public String toString() {
+    return "Student{id=" + id + ", name='" + name + "', age=" + age +
+           ", grade=" + grade + ", branch='" + branch + "'}";
+}
 }
