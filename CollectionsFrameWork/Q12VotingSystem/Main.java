@@ -4,13 +4,13 @@ public class Main {
     public static void main(String[] args) {
         VotingSystem votingSystem = new VotingSystem();
 
-        votingSystem.addVote("Shraddha");
-        votingSystem.addVote("Ruhi");
-        votingSystem.addVote("Ranjana");
-        votingSystem.addVote("Pratham");
-        votingSystem.addVote("Shraddha");
+        votingSystem.castVote("Shraddha");
+        votingSystem.castVote("Ruhi");
+        votingSystem.castVote("Ranjana");
+        votingSystem.castVote("Pratham");
+        votingSystem.castVote("Shraddha");
 
-        votingSystem.displayVote();
+        votingSystem.displayResult();
 
     }
 }
