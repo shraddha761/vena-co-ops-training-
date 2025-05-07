@@ -6,9 +6,9 @@ import java.util.PriorityQueue;
 public class Main {
     public static void main(String[] args) {
         PriorityQueue<Task> taskQueue = new PriorityQueue<>((t1, t2) -> {
-            int cmp = t1.deadline.compareTo(t2.deadline);
+            int cmp = t1.getDeadline().compareTo(t2.getDeadline());
             if(cmp == 0){
-                return Integer.compare(t2.priority, t1.priority);
+                return Integer.compare(t2.getPriority(), t1.getPriority());
             }
             return cmp;
         });
