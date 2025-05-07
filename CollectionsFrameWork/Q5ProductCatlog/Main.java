@@ -14,12 +14,12 @@ public class Main {
         sortedEntries.sort((e1, e2) -> {
             Product p1 = e1.getValue();
             Product p2 = e2.getValue();
-            int ratingComparison = Double.compare(p1.rating, p2.rating);
+            int ratingComparison = Double.compare(p2.rating, p1.rating);
             if (ratingComparison != 0) return ratingComparison;
             return p2.name.compareTo(p1.name);
         });
 
-        for (Map.Entry<Integer, Product> entry : products.entrySet()) {
+        for (Map.Entry<Integer, Product> entry : sortedEntries.entrySet()) {
             System.out.println(entry.getKey() + " -> Category: " + entry.getValue().name);
         }
     }
