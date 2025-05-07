@@ -1,32 +1,29 @@
-package CollectionsFrameWork.Q13FlightBooking;
+package CollectionsFramework.Q13FlightBooking;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
+import java.util.*;
 
-public class Booking {
-    Queue<String> requestQueue = new LinkedList<>();
-    Map<String, String> confirmBooking = new HashMap<>();
-    int seatNumber = 1;
+public class FlightBookingManager {
+    private Queue<String> bookingQueue = new LinkedList<>();
+    private Map<String, Integer> confirmedBookings = new HashMap<>();
+    private int nextSeatNumber = 1;
 
-    void addRequest(String request) {
-        requestQueue.add(request);
+    public void requestBooking(String passengerName) {
+        bookingQueue.offer(passengerName);
+        System.out.println("Booking requested for " + passengerName);
     }
 
-    void processRequest() {
-        while (!requestQueue.isEmpty()) {
-            String request = requestQueue.poll();
-            String seat = "Confirmed seat " + seatNumber++;
-
-            confirmBooking.put(seat, request);
-//            System.out.println("Confirmed" + request + ": " + seat);
-        }
-    }
-        public void displayConfirmedBookings(){
-            for(Map.Entry<String, String> entry : confirmBooking.entrySet()) {
-                System.out.println(entry.getKey() + ": " + entry.getValue());
-            }
+    public void processBookings() {
+        while (!bookingQueue.isEmpty()) {
+            String passenger = bookingQueue.poll();
+            confirmedBookings.put(passenger, nextSeatNumber++);
+            System.out.println("Confirmed booking for " + passenger + " with seat number " + confirmedBookings.get(passenger));
         }
     }
 
+    public void printConfirmedBookings() {
+        System.out.println("\nConfirmed Bookings:");
+        for (Map.Entry<String, Integer> entry : confirmedBookings.entrySet()) {
+            System.out.println(entry.getKey() + " -> Seat " + entry.getValue());
+        }
+    }
+}
