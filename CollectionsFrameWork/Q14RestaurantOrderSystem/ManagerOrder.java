@@ -23,7 +23,7 @@ public class ManagerOrder {
         }
     }
     void processOrderFromBack(){
-        while(!orderHistory.isEmpty()){
+        while(!currentOrders.isEmpty()){
             Order order = currentOrders.pollLast();  
             orderHistory.add(order);
         }
