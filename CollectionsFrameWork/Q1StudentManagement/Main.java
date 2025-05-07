@@ -6,35 +6,48 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         List<Student> students = new ArrayList<>();
-        students.addAll(Arrays.asList(
-                new Student(1, "Shraddha", 21, 9.8, "CSE"),
-                new Student(2, "Ruhi", 21, 9.9, "EC"),
-                new Student(3, "Ranjana", 21, 9.8, "ME"),
-                new Student(4, "Pratham", 21, 9.9, "CSE"),
-                new Student(5, "Sachin", 21, 9.9, "EC"),
-                new Student(6, "Rajat", 21, 9.9, "CSE"),
-                new Student(7, "Shivani", 21, 9.9, "CSE"),
-                new Student(8, "Tanishka", 21, 9.9, "ME"),
-                new Student(9, "Shivanshi", 21, 9.9, "CSE"),
-                new Student(10, "Abhay", 21, 9.9, "EC"),
-                new Student(11, "Gayatri", 21, 9.9, "ME"),
-                new Student(12, "Ganga", 21, 9.9, "EC"),
-                new Student(13, "Shanu", 21, 9.9, "ME"),
-                new Student(14, "Radhe", 21, 9.9, "CSE"),
-                new Student(15, "Kanha", 21, 9.9, "ME")
+        
+        sortStudents(students);
+        Map<String, List<Student>> groupedByBranch = groupByBranch(students);
+        printGroupedStudents(groupedByBranch);
+    }
+    private static List<Student> createStudents() {
+        return new ArrayList<>(Arrays.asList(
+                new Student("Shraddha", 21, 9.8, "CSE"),
+                new Student("Ruhi", 21, 9.9, "EC"),
+                new Student("Ranjana", 21, 9.8, "ME"),
+                new Student("Pratham", 21, 9.9, "CSE"),
+                new Student("Sachin", 21, 9.9, "EC"),
+                new Student("Rajat", 21, 9.9, "CSE"),
+                new Student("Shivani", 21, 9.9, "CSE"),
+                new Student("Tanishka", 21, 9.9, "ME"),
+                new Student("Shivanshi", 21, 9.9, "CSE"),
+                new Student("Abhay", 21, 9.9, "EC"),
+                new Student("Gayatri", 21, 9.9, "ME"),
+                new Student("Ganga", 21, 9.9, "EC"),
+                new Student("Shanu", 21, 9.9, "ME"),
+                new Student("Radhe", 21, 9.9, "CSE"),
+                new Student("Kanha", 21, 9.9, "ME")
         ));
+
+        private static void sortStudents(List<Student> students) {
         students.sort(Comparator
-                .comparing((Student s) -> s.branch) // sort by branch (ascending)
-                .thenComparing(Comparator.comparing((Student s) -> s.grade).reversed()) // then by grade (descending)
-        );
+                .comparing(Student::getBranch)
+                .thenComparing(Comparator.comparingDouble(Student::getGrade).reversed()));
+    }
 
-        Map<String, List<Student>> studentsByBranch = students.stream().collect(Collectors.groupingBy(s -> s.branch));
+    private static Map<String, List<Student>> groupByBranch(List<Student> students) {
+        return students.stream()
+                .collect(Collectors.groupingBy(Student::getBranch));
+    }
 
-        for (Map.Entry<String, List<Student>> entry : studentsByBranch.entrySet()) {
+    private static void printGroupedStudents(Map<String, List<Student>> groupedStudents) {
+        for (Map.Entry<String, List<Student>> entry : groupedStudents.entrySet()) {
             System.out.println("Branch: " + entry.getKey());
             for (Student s : entry.getValue()) {
-                System.out.println("  " + s.name + " - Grade: " + s.grade);
+                System.out.println("  " + s);
             }
+            System.out.println();
         }
     }
 }
