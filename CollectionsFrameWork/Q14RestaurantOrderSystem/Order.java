@@ -1,8 +1,8 @@
 package CollectionsFrameWork.Q14RestaurantOrderSystem;
 
 public class Order {
-    int orderId;
-    String description;
+    private int orderId;
+    private String description;
 
     Order(int orderId, String description) {
         this.orderId = orderId;
