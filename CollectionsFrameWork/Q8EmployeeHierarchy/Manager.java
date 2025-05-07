@@ -1,7 +1,7 @@
 package CollectionsFrameWork.Q8EmployeeHierarchy;
 
 public class Manager {
-    String name;
+    private String name;
 
     Manager(String name){
         this.name = name;
