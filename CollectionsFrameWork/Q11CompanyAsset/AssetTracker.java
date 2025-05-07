@@ -10,12 +10,12 @@ public class AssetTracker {
     Set<Integer> globalAssetIds = new HashSet<>();
 
     public void addAsset(String departmentName, Asset asset) {
-        if(globalAssetIds.contains(asset.assetId)){
-            System.out.println("Already added asset" + asset.assetId);
+        if(globalAssetIds.contains(asset.getAssetId)){
+            System.out.println("Already added asset" + asset.getAssetId);
             return;
         }
             assets.computeIfAbsent(departmentName, k -> new HashSet<>()).add(asset);
-            globalAssetIds.add(asset.assetId);
+            globalAssetIds.add(asset.getAssetId);
     }
 
     void printAssets() {
