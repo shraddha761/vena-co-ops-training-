@@ -12,6 +12,10 @@ public class Task {
         this.priority = priority;
         this.deadline = deadline;
     }
+
+    public int getPriority() {
+        return priority;
+    }
     
     public LocalDateTime getDeadline() {
         return deadline;
