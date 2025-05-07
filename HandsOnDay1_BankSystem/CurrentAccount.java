@@ -1,10 +1,10 @@
 package HandsOnDay1_BankSystem;
 
-public class CheckingAccount extends BankAccount {
+public class CurrentAccount extends BankAccount {
     private double overdraftLimit;
     private double overdraftFee;
 
-    public CheckingAccount(String accountNumber, double initialBalance, double overdraftLimit, double overdraftFee) {
+    public CurrentAccount(String accountNumber, double initialBalance, double overdraftLimit, double overdraftFee) {
         super(accountNumber, initialBalance);
         this.overdraftLimit = overdraftLimit;
         this.overdraftFee = overdraftFee;
