@@ -19,7 +19,7 @@ public class Main {
             return p2.getName().compareTo(p1.getName());
         });
 
-        for (Map.Entry<Integer, Product> entry : sortedEntries.entrySet()) {
+        for (Map.Entry<Integer, Product> entry : sortedEntries) {
             System.out.println(entry.getKey() + " -> Category: " + entry.getValue().getName());
         }
     }
