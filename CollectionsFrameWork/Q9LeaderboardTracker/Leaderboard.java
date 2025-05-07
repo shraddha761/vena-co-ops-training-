@@ -17,7 +17,7 @@ public class Leaderboard {
         if(playersMap.containsKey(name)){
             Player existing = playersMap.get(name);
             leaderboard.remove(existing);
-            existing.score = score;
+            existing.setScore(score);
             leaderboard.add(existing);
         }
         else{
@@ -28,7 +28,7 @@ public class Leaderboard {
     }
     void printLeaderboard(){
         for(Player player : leaderboard){
-            System.out.println(player.name  + " " + player.score );
+            System.out.println(player.name  + " " + player.getScore());
         }
     }
 }
