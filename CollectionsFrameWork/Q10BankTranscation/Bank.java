@@ -13,7 +13,7 @@ public class Bank {
         List<Transaction> transactions = transactionsLog.get(accountNumber);
 
         if(transactions == null || transactions.isEmpty()) {
-            System.out.println("No tranasctions found for account: " + accountNumber);
+            System.out.println("No transactions found for account: " + accountNumber);
             return;
         }
 
