@@ -24,15 +24,15 @@ public class ManagerOrder {
     }
     void processOrderFromBack(){
         while(!orderHistory.isEmpty()){
-            Order order = orderHistory.remove(0);
+            Order order = currentOrders.pollLast();  
             orderHistory.add(order);
         }
     }
     void showCurrentOrders(){
-        System.out.println(currentOrders);
+        System.out.println("Current Orders: " + currentOrders);
     }
     void showOrderHistory(){
-        System.out.println(orderHistory);
+        System.out.println("Order History: " + orderHistory);
     }
 
 }
