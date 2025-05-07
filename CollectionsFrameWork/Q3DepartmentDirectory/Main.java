@@ -17,7 +17,7 @@ public class Main {
         );
 
          for (Employee emp : allEmployees) {
-            deptDirectory.computeIfAbsent(emp.department, k -> new ArrayList<>()).add(emp);
+            deptDirectory.computeIfAbsent(emp.getDepartment(), k -> new ArrayList<>()).add(emp);
         }
 
         for (List<Employee> empList : deptDirectory.values()) {
