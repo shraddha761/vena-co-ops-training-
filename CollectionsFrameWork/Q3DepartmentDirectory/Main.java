@@ -27,8 +27,8 @@ public class Main {
         System.out.println("How many employees salary wants? " );
         int N = scanner.nextInt();
 
-        if (n > employees.size()) {
-          System.out.println("Requested top " + n + " employees, but only " + employees.size() + " are available.");
+        if (N > employees.size()) {
+          System.out.println("Requested top " + N + " employees, but only " + employees.size() + " are available.");
         }
 
        List<Employee> topPaid = getTopPaidEmployees(allEmployees, N);
