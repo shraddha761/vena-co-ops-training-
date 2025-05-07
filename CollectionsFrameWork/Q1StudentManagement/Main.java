@@ -5,12 +5,13 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        List<Student> students = new ArrayList<>();
-        
-        sortStudents(students);
+        List<Student> students = createStudents(); 
+
+        sortStudents(students); 
         Map<String, List<Student>> groupedByBranch = groupByBranch(students);
         printGroupedStudents(groupedByBranch);
     }
+
     private static List<Student> createStudents() {
         return new ArrayList<>(Arrays.asList(
                 new Student("Shraddha", 21, 9.8, "CSE"),
@@ -29,8 +30,9 @@ public class Main {
                 new Student("Radhe", 21, 9.9, "CSE"),
                 new Student("Kanha", 21, 9.9, "ME")
         ));
+    }
 
-        private static void sortStudents(List<Student> students) {
+    private static void sortStudents(List<Student> students) {
         students.sort(Comparator
                 .comparing(Student::getBranch)
                 .thenComparing(Comparator.comparingDouble(Student::getGrade).reversed()));
