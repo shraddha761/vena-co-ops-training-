@@ -3,25 +3,25 @@ package CollectionsFrameWork.Q10BankTranscation;
 import java.util.*;
 
 public class Bank {
-    private Map<String, List<Transcation>> transcationsLog = new HashMap<>();
+    private Map<String, List<Transaction>> transactionsLog = new HashMap<>();
 
-    public void addTranscation(String accountNumber, Transcation transcation) {
-        transcationsLog.computeIfAbsent(accountNumber, k -> new ArrayList<>()).add(transcation);
+    public void addTransaction(String accountNumber, Transaction transaction) {
+        transactionsLog.computeIfAbsent(accountNumber, k -> new ArrayList<>()).add(transaction);
     }
 
-    public void generateTranscations(String accountNumber) {
-        List<Transcation> transcations = transcationsLog.get(accountNumber);
+    public void generateTransactions(String accountNumber) {
+        List<Transaction> transactions = transactionsLog.get(accountNumber);
 
-        if(transcations == null || transcations.isEmpty()) {
-            System.out.println("No transactions found for account: " + accountNumber);
+        if(transactions == null || transactions.isEmpty()) {
+            System.out.println("No tranasctions found for account: " + accountNumber);
             return;
         }
 
-        transcations.sort(Comparator.comparing(Transcation::getTransactionTime));
+        transactions.sort(Comparator.comparing(Transaction::getTransactionTime));
 
         System.out.println("Statement for account " + accountNumber + " has been generated");
-        for(Transcation transcation : transcations) {
-            System.out.println(transcation);
+        for(Transaction transaction : transactions) {
+            System.out.println(transaction);
         }
     }
 }
