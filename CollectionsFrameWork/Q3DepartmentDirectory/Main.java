@@ -29,6 +29,7 @@ public class Main {
 
         if (N > employees.size()) {
           System.out.println("Requested top " + N + " employees, but only " + employees.size() + " are available.");
+            return;
         }
 
        List<Employee> topPaid = getTopPaidEmployees(allEmployees, N);
