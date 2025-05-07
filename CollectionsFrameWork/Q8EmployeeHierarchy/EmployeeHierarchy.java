@@ -14,7 +14,7 @@ public class EmployeeHierarchy {
         for (Map.Entry<Manager, TreeMap<Integer, List<Employee>>> entry : hierarchy.entrySet()) {
             TreeMap<Integer, List<Employee>> levels = entry.getValue();
             Manager manager = entry.getKey();
-            System.out.println("Manager " + manager.name);
+            System.out.println("Manager " + manager.getName());
             for (Map.Entry<Integer, List<Employee>> level : levels.entrySet()) {
                 List<Employee> employees = level.getValue();
                 System.out.println("Level" + level.getKey() + " " + employees);
