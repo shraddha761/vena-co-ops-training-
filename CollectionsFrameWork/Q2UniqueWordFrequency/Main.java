@@ -10,8 +10,8 @@ public class Main {
         String paragraph = "Java is simple. Java is powerful. Java is everywhere.";
 
         String[] words = paragraph.toLowerCase().replaceAll("[^a-z ]", "") .split("\\s+");
+        
         Map<String, Integer> wordFreq = new HashMap<>();
-
         for (String word : words) {
             wordFreq.put(word, wordFreq.getOrDefault(word, 0) + 1);
         }
