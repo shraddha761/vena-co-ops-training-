@@ -5,9 +5,9 @@ public class Asset {
     private String name;
     private String department;
 
-    Asset(int AssetID, String AssetName, String department) {
-        this.assetId = AssetID;
-        this.name = AssetName;
+    Asset(int assetID, String assetName, String department) {
+        this.assetId = assetID;
+        this.name = assetName;
         this.department = department;
     }
 
