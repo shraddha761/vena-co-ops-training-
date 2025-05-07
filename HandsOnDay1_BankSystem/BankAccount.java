@@ -27,7 +27,4 @@ public abstract class BankAccount {  // Abstraction
         System.out.println("Account Number: " + accountNumber);
         System.out.println("Balance: " + balance);
     }
-
-    public void applyInterest() {
-    }
 }
