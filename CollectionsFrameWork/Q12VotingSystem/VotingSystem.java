@@ -8,11 +8,11 @@ import java.util.Map;
 public class VotingSystem {
     private Map<String, Integer> votingSystem = new HashMap<>();
 
-    public void addVote(String voter) {
+    public void castVote(String voter) {
         votingSystem.put(voter, votingSystem.getOrDefault(voter, 0) + 1);
     }
 
-    public void displayVote(){
+    public void displayResult(){
         List<Map.Entry<String, Integer>> list = new ArrayList<>(votingSystem.entrySet());
         list.sort((entry1, entry2) -> entry2.getValue() - entry1.getValue());
 
