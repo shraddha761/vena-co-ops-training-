@@ -13,7 +13,7 @@ public class Main {
                 new Employee("Radha", "HR", 85000),
                 new Employee("Kanha", "IT", 95000),
                 new Employee("Krishan", "IT", 92000),
-                new Employee("Pratham", "Finance", 88000),
+                new Employee("Pratham", "Finance", 88000)
         );
 
          for (Employee emp : allEmployees) {
