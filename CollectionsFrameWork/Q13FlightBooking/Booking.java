@@ -8,8 +8,12 @@ public class FlightBookingManager {
     private int nextSeatNumber = 1;
 
     public void requestBooking(String passengerName) {
-        bookingQueue.offer(passengerName);
-        System.out.println("Booking requested for " + passengerName);
+        if (!bookingQueue.contains(passengerName)) {
+            bookingQueue.offer(passengerName);
+            System.out.println("Booking requested for " + passengerName);
+        } else {
+            System.out.println("Duplicate booking request for " + passengerName);
+        }
     }
 
     public void processBookings() {
