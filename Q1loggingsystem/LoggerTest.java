@@ -15,7 +15,7 @@ public class LoggerTest {
                     Logger.Level level = Logger.Level.INFO;
                     if(i % 33 == 0) level = Logger.Level.WARN;
                     if(i % 77 == 0) level = Logger.Level.ERROR;
-                    logger.log("Thread " + threadId + ": " + "Message " + i + level);
+                    logger.log("Thread " + threadId + ": " + "Message " + i , level);
                 }
             });
             threads[t].start();
