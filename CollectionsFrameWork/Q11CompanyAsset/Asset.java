@@ -18,7 +18,8 @@ public class Asset {
     public String getName() {
         return name;
     }
-    
+
+    @Override
     public String toString() {
         return "Asset ID: " + assetId + ", Name: " + name + ", Department: " + department;
     }
