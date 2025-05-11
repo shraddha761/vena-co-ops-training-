@@ -7,7 +7,7 @@ public class BankAccount {
     private double balance;
     private final int accountNumber;
     private final Object lock = new Object(); // Per-account lock
-    private final List<String> translationLog = new ArrayList<>();
+    private final List<String> transactionLog = new ArrayList<>();
 
     public BankAccount(int accountNumber) {
         this.accountNumber = accountNumber;
@@ -45,12 +45,12 @@ public class BankAccount {
 
     private void log(String message) {
         String logEntry = "[" + Thread.currentThread().getName() + "] " + message;
-        translationLog.add(logEntry);
+        transactionLog.add(logEntry);
     }
 
-    public List<String> getTranslationLog() {
+    public List<String> getTransactionLog() {
         synchronized (lock){
-            return translationLog;
+            return new ArrayList<>(transactionLog);
         }
     }
 }
