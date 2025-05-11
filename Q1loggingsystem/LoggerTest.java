@@ -3,6 +3,7 @@ package Q1loggingsystem;
 public class LoggerTest {
     public static void main(String[] args) throws Exception {
         Logger logger = new Logger(true, "logs.txt"); // File based flushing
+        // Logger logger = new Logger();  // Log to console
 
         int threadCount = 100;
         int messagePerThread = 100;
