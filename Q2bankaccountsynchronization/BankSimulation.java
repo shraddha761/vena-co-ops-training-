@@ -1,6 +1,6 @@
 package Q2bankaccountsynchronization;
 
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class BankSimulation {
     public static void main(String[] args) throws InterruptedException {
@@ -8,17 +8,15 @@ public class BankSimulation {
 
         int userThreads = 10;
         Thread[] threads = new Thread[userThreads];
-        Random rand = new Random();
 
         for (int i = 0; i < userThreads; i++) {
             threads[i] = new Thread(() -> {
                 for (int j = 0; j < 100; j++) {
-                    if(rand.nextBoolean()){
-                        double amount = rand.nextInt(100) + 1;
+                    double amount = ThreadLocalRandom.current().nextInt(100) + 1;
+                    if(ThreadLocalRandom.current().nextBoolean()){
                         account.deposit(amount);
                     }
                     else{
-                        double amount = rand.nextInt(100) + 1;
                         account.withdraw(amount);
                     }
                 }
@@ -29,7 +27,7 @@ public class BankSimulation {
 
         System.out.println("Final Balance: " + account.getBalance());
         System.out.println("Transaction Log:");
-        for(String log : account.getTranslationLog()){
+        for(String log : account.getTransactionLog()){
             System.out.println(log);
         }
     }
