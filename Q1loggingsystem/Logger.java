@@ -51,10 +51,6 @@ public class Logger {
         flushThread.start();
     }
 
-    public void log(String message) {
-        log(message, Level.INFO);
-    }
-
     public void log(String message, Level level) {
         queue.offer(new LogEntry(message, level));
     }
