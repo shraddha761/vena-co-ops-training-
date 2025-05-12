@@ -1,0 +1,3 @@
+Java is a popular programming language. Many developers use java to build applications.
+The Java platform provides a robust environment for software development.
+Learning Java can open many opportunities in the tech industry.

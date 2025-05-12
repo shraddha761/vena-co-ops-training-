@@ -1,0 +1,4 @@
+Hello, World!
+This is a test file.
+It contains letters, punctuation, and spaces.
+Let's count the characters.

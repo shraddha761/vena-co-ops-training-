@@ -1,0 +1,4 @@
+This is a sample source file.
+It contains multiple lines of text.
+You can use this file to test reading and writing with Java NIO.
+End of file.

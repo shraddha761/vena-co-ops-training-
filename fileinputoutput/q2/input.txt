@@ -1,0 +1,4 @@
+Hello, this is a sample file.
+It contains multiple lines of text.
+You can read and print all these lines using your Java program.
+Have a great day!

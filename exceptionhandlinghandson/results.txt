@@ -1,0 +1,10 @@
+Valid Student Grades:
+Shraddha 85
+Pratham 72
+Krishan 38
+Radha 95
+
+Failing Students (<40):
+Krishan
+
+Average Grade: 72.50
