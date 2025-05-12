@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 
-public class Q1ExceptionFlow {
+public class ExceptionFlow {
     static void readData() throws IOException {
          BufferedReader reader = new BufferedReader(new FileReader("file.txt"));
          String line = reader.readLine();
